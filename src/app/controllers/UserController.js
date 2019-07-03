@@ -8,15 +8,15 @@ class UserController {
 
     if (userExists) return res.status(400).json({ error: 'email exists' });
 
-    const { name, email, password_hash } = req.body;
+    const { name, email, password } = req.body;
 
     await User.create({
       name,
       email,
-      password_hash,
+      password,
     });
 
-    return res.json({ name, email, password_hash });
+    return res.json({ name, email, password });
   }
 }
 
